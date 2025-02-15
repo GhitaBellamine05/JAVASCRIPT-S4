@@ -1,1 +1,1 @@
-# JAVASCRIPT-S4
+# JavaScript-S4
