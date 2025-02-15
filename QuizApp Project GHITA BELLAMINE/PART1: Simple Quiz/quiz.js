@@ -91,7 +91,6 @@ function startTimer() {
 function handleTimeout() {
   acceptingAnswers = false;
   
-  // Apply "incorrect" class to all choices
   choices.forEach((choice) => choice.parentElement.classList.add("incorrect"));
 
   setTimeout(() => {
@@ -126,7 +125,7 @@ choices.forEach((choice, index) => {
 function incrementScore(num) {
   score += num;
   scoreText.innerText = score;
-  localStorage.setItem("quizScore", score); // Update score in localStorage
+  localStorage.setItem("quizScore", score); 
 }
 
 startGame();
