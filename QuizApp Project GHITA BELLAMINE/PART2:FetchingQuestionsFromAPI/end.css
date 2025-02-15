@@ -1,0 +1,24 @@
+
+#paragraph{
+    text-align:center;
+    font-weight:700;
+    font-size:1.7rem;
+
+}
+#finalScore{
+    text-align:center;
+    font-weight:700;
+    font-size: 2rem;
+    color: #3b8cd6;
+
+}
+#scoreMessage{
+    text-align:center;
+    font-weight:700;
+    font-size: 1.7rem;
+    
+
+}
+button{
+    margin-left:4.5em;
+}

@@ -1,0 +1,120 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(#c4ddf4,#2d94ef,#bed5e9);   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    background-color: white;
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+#timer{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#question-number {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.score{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color:#007bff;
+
+}
+
+.header-main-text {
+    text-align: center;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.choices {
+    list-style: none;
+    width: 100%;
+}
+
+.choice-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    font-size: 1.2rem;
+    border: 2px solid rgba(86, 165, 235, 0.25);
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.choice-container:hover {
+    box-shadow: 0 4px 10px rgba(86, 185, 235, 0.5);
+    transform: translateY(-2px);
+    background-color: rgba(86, 185, 235, 0.1);
+}
+.choice-prefix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #56a5eb;
+    color: white;
+    border-radius: 50%;
+}
+
+.choice-text {
+    flex-grow: 1;
+}
+
+.correct {
+    border: 3px solid green ;
+}
+
+.incorrect {
+    border: 3px solid red ;
+}
+
+
+/* Hide both choice lists initially */
+#multiple, #boolean {
+    display: none;
+}
+
+#time{color:rgba(248, 25, 25, 0.96)}

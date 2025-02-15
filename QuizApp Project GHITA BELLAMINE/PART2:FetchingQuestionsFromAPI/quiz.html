@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Quiz - Play</title>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id ="time"><p id="timer">Time Left: <span id="time-left"></span> seconds</p></div>
+      <!-- Header displaying question count and score -->
+      <div id="header">
+        <div>
+          <p id ="question-number"></p>
+        </div>
+        <div>
+          <p class="score">Score</p>
+          <h1 class="header-main-text" id="score"></h1>
+        </div>
+        <br>
+        
+      </div>
+
+      <!-- Question -->
+      <h2 id="question">What is the answer to this question?</h2>
+      
+      <p id="loading-message">Loading questions...</p>
+      <!-- Choices -->
+      <ul class="choices" id="multiple">
+        <li class="choice-container" >
+          <span class="choice-prefix">A</span>
+          <p class="choice-text">Choice 1</p>
+        </li>
+        <li class="choice-container" >
+          <span class="choice-prefix">B</span>
+          <p class="choice-text">Choice 2</p>
+        </li>
+        <li class="choice-container" >
+          <span class="choice-prefix">C</span>
+          <p class="choice-text">Choice 3</p>
+        </li>
+        <li class="choice-container" >
+          <span class="choice-prefix">D</span>
+          <p class="choice-text">Choice 4</p>
+        </li>
+      </ul>
+      <ul class="choices" id="boolean">
+        <li class="choice-container">
+            <span class="choice-prefix">A</span>
+            <p class="choice-text">True</p>
+          </li>
+          <li class="choice-container">
+            <span class="choice-prefix">B</span>
+            <p class="choice-text">False</p>
+          </li>
+
+
+      </ul>
+    </div>
+    <script src="quiz.js"></script>
+  </body>
+</html>
