@@ -1,7 +1,7 @@
 // Get elements from the DOM
 const questionElement = document.getElementById("question");
-const multipleChoiceList = document.getElementById("multiple"); // UL for multiple choice
-const booleanChoiceList = document.getElementById("boolean"); // UL for boolean
+const multipleChoiceList = document.getElementById("multiple"); // UL for multiple choice questions
+const booleanChoiceList = document.getElementById("boolean"); // UL for boolean choice questions
 const scoreElement = document.getElementById("score");
 
 let questions = [];
@@ -10,10 +10,10 @@ let score = 0;
 
 // Retrieve quiz configuration
 function getQueryParams() {
-    const config = JSON.parse(localStorage.getItem("quizConfig")); // Get stored config
+    const config = JSON.parse(localStorage.getItem("quizConfig")); // Get stored Quizconfiguration from the configuration.html
     if (!config) {
         alert("No quiz configuration found! Redirecting...");
-        window.location.href = "configuration.html"; // Redirect to settings page
+        window.location.href = "configuration.html"; // Redirect to quiz configuration  page
     }
     return config;
 }

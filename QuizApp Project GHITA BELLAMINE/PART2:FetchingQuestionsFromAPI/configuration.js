@@ -5,7 +5,7 @@ document.querySelector("#quiz-configuration").addEventListener("submit", functio
     const numQuestions = document.querySelector("#questions_num").value;
     const category = document.querySelector("#category").value;
     const difficulty = document.querySelector("#difficulty").value;
-    const type = document.querySelector("#type").value; // Get question type
+    const type = document.querySelector("#type").value; 
 
     // Convert numQuestions to an integer
     const numQuestionsInt = parseInt(numQuestions);

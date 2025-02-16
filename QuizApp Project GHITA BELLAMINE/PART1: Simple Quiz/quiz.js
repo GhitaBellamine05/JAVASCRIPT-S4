@@ -13,12 +13,12 @@ let timerInterval;
 
 let questions = [
   {
-    question: "Inside which HTML element do we put the JavaScript?",
+    question: "Inside which HTML element do we put the JavaScript code ?",
     choice1: "<script>",
     choice2: "<javascript>",
     choice3: "<js>",
     choice4: "<scripting>",
-    answer: 1,
+    answer: 1,  // that means the the correct answer is the choice 1
   },
   {
     question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
@@ -52,11 +52,12 @@ function startGame() {
 
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    localStorage.setItem("quizScore", score); // Store score before redirecting
+    localStorage.setItem("quizScore", score); // Store score before redirecting to the score page
     return window.location.assign("end.html");
   }
 
   questionCounter++;
+  // Randomly displaying questions 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -65,7 +66,7 @@ function getNewQuestion() {
     choice.innerText = currentQuestion["choice" + (index + 1)];
   });
 
-  availableQuestions.splice(questionIndex, 1);
+  availableQuestions.splice(questionIndex, 1); // Suppression
   acceptingAnswers = true;
 
   // Restart timer
@@ -73,7 +74,7 @@ function getNewQuestion() {
 }
 
 function startTimer() {
-  clearInterval(timerInterval);
+  clearInterval(timerInterval); // to ensure that the process is the same for each question
   timeLeft = 10;
   timerText.innerText = timeLeft;
 
@@ -83,21 +84,12 @@ function startTimer() {
 
     if (timeLeft === 0) {
       clearInterval(timerInterval);
-      handleTimeout();
+      alert("Time is Out ! Moving to next question.")
+      getNewQuestion(); // Moving directly to next Question
     }
   }, 1000);
 }
 
-function handleTimeout() {
-  acceptingAnswers = false;
-  
-  choices.forEach((choice) => choice.parentElement.classList.add("incorrect"));
-
-  setTimeout(() => {
-    choices.forEach((choice) => choice.parentElement.classList.remove("incorrect"));
-    getNewQuestion();
-  }, 1000);
-}
 
 choices.forEach((choice, index) => {
   choice.addEventListener("click", () => {
@@ -114,7 +106,6 @@ choices.forEach((choice, index) => {
     }
 
     choice.parentElement.classList.add(classToApply);
-
     setTimeout(() => {
       choice.parentElement.classList.remove(classToApply);
       getNewQuestion();
