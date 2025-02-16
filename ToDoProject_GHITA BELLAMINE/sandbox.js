@@ -14,8 +14,8 @@ addForm.addEventListener('submit', function (e) {
 function addTodo() {
     const newTodo = document.querySelector("#todo").value.trim();
     if (newTodo.length) {
-        createToDoItem(newTodo);
-        saveTodos();
+        createToDoItem(newTodo); // Adding the task to the To Do list
+        saveTodos();             // Saving
         addForm.reset();
     } else {
         alert('Please enter a Task!');
@@ -51,9 +51,10 @@ function loadTasks() {
 // Delete a task
 todoListUL.addEventListener("click", function (e) {
     if (e.target.classList.contains("delete")) {
-        const taskItem = e.target.parentElement;
+        const taskItem = e.target.parentElement;   // corresponding li
         const taskText = taskItem.querySelector('span').textContent;
         taskItem.remove();
+        // removing the deleted task from the localStorage also
         let tasks = JSON.parse(localStorage.getItem('todo')) || [];
         tasks = tasks.filter(todo => todo !== taskText);
         localStorage.setItem("todo", JSON.stringify(tasks));
@@ -79,7 +80,8 @@ const filtrer = (inputtext) => {
             item.style.display = "";  
             item.style.visibility = ''; 
             item.style.position = ''; 
-        } else {
+        } 
+        else {
             item.style.visibility = 'hidden';  
             item.style.position = "absolute"; 
         }
