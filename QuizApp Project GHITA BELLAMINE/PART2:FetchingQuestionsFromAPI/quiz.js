@@ -27,13 +27,12 @@ function fetchQuestions() {
         .then((res) => res.json())
         .then((data) => {
             document.querySelector("#loading-message").style.display = "none";
-
+            console.log(data.results);
             if (!data.results || data.results.length === 0) {
                 alert("No questions available for the selected settings. Please choose different settings.");
                 window.location.href = "configuration.html"; 
                 return;
             }
-
             questions = data.results.map(formatQuestion);
             startGame();
         })
@@ -51,11 +50,12 @@ function formatQuestion(questionData) {
 
     if (questionData.type === "boolean") {
         formattedQuestion.choices = ["True", "False"];
-        formattedQuestion.answer = questionData.correct_answer === "True" ? 1 : 2;
+        formattedQuestion.answer = questionData.correct_answer === "True" ? 0 : 1;
     } else {
+        // here the questionData.type === "multiple"
         let answerChoices = [...questionData.incorrect_answers];
-        formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
-        answerChoices.splice(formattedQuestion.answer - 1, 0, questionData.correct_answer);
+        formattedQuestion.answer = Math.floor(Math.random() * 4);  // randomly choosing an index for the correct answer
+        answerChoices.splice(formattedQuestion.answer, 0, questionData.correct_answer); // inserting the correct answer in the list of answerChoices 
         formattedQuestion.choices = answerChoices;
     }
 
@@ -79,7 +79,7 @@ function displayQuestion() {
 
     resetChoiceStyles(); // Reset styles before showing the new question
 
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = questions[currentQuestionIndex]; //[{...},{...}]
     questionElement.innerHTML = currentQuestion.question;
 
     document.getElementById("question-number").innerText = `Question ${currentQuestionIndex + 1}/${questions.length}`;
@@ -89,11 +89,8 @@ function displayQuestion() {
         multipleChoiceList.style.display = "none";
 
         const booleanChoices = booleanChoiceList.getElementsByClassName("choice-text");
-        booleanChoices[0].innerText = "True";
-        booleanChoices[1].innerText = "False";
-
-        booleanChoices[0].parentElement.onclick = () => checkAnswer(1, currentQuestion.answer, booleanChoices[0].parentElement);
-        booleanChoices[1].parentElement.onclick = () => checkAnswer(2, currentQuestion.answer, booleanChoices[1].parentElement);
+        booleanChoices[0].parentElement.onclick = () => checkAnswer(0, currentQuestion.answer, booleanChoices[0].parentElement);
+        booleanChoices[1].parentElement.onclick = () => checkAnswer(1, currentQuestion.answer, booleanChoices[1].parentElement);
     } else {
         multipleChoiceList.style.display = "block";
         booleanChoiceList.style.display = "none";
@@ -101,13 +98,35 @@ function displayQuestion() {
         const choicesElements = Array.from(multipleChoiceList.getElementsByClassName("choice-text"));
         choicesElements.forEach((choiceElement, index) => {
             choiceElement.innerText = currentQuestion.choices[index];
-            choiceElement.parentElement.onclick = () => checkAnswer(index + 1, currentQuestion.answer, choiceElement.parentElement);
+            choiceElement.parentElement.onclick = () => checkAnswer(index, currentQuestion.answer, choiceElement.parentElement);
         });
     }
 
     startTimer();
 }
+// Check the answer
+function checkAnswer(selectedAnswer, correctAnswer, selectedElement) {
+    clearInterval(timerInterval);
 
+    resetChoiceStyles(); // Ensure old styles are cleared
+
+    const isCorrect = selectedAnswer === correctAnswer;
+    const classToApply = isCorrect ? "correct" : "incorrect";
+
+    selectedElement.classList.add(classToApply);
+
+    if (isCorrect) {
+        score += 10;
+        scoreElement.innerText = `${score} / ${questions.length * 10}`;
+    }
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+        displayQuestion();
+    }, 1000);
+}
+
+// Timer part
 let timeLeft = 10;
 let timerInterval;
 
@@ -138,29 +157,6 @@ function resetChoiceStyles() {
     document.querySelectorAll(".choice-container").forEach((choice) => {
         choice.classList.remove("correct", "incorrect");
     });
-}
-
-// Check the answer
-function checkAnswer(selectedAnswer, correctAnswer, selectedElement) {
-    clearInterval(timerInterval);
-
-    resetChoiceStyles(); // Ensure old styles are cleared
-
-    const isCorrect = selectedAnswer === correctAnswer;
-    const classToApply = isCorrect ? "correct" : "incorrect";
-
-    // Apply the border color class
-    selectedElement.classList.add(classToApply);
-
-    if (isCorrect) {
-        score += 10;
-        scoreElement.innerText = `${score} / ${questions.length * 10}`;
-    }
-
-    setTimeout(() => {
-        currentQuestionIndex++;
-        displayQuestion();
-    }, 1000);
 }
 
 
