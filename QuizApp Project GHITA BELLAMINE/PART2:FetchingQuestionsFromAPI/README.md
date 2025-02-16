@@ -1,1 +1,1 @@
-#PLEASE EXECUTE configuration.html 
+# Please execute the configuration.html 
