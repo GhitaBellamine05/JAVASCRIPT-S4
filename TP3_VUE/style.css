@@ -1,0 +1,60 @@
+body{
+    background: #352f5b;
+}
+
+input[type=text],
+input[type=text]:focus{
+    color: #fff;
+    border: none;
+    background: rgba(0,0,0,0.2);
+   
+
+}
+input[type=text]{
+    width:50%;
+    height:3em;
+
+}
+.radioButton{
+    width:2em;
+    height:0.8em;
+}
+
+
+label{
+    font-size:1.5em;
+}
+.todos{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center
+}
+.todos li{
+    background: #423a6f;
+    
+}
+fieldset{
+    display:flex;
+    flex-direction : column;
+    justify-content:center;
+    align-items:center;
+}
+li{
+    width:50%;
+      
+}
+input[type=checkbox]{
+    height:1.2em;
+    width:1.2em;
+    
+
+}
+li span {font-size:1.2em;}
+.pg{
+    display:flex;
+    justify-content:center;
+    color:white;
+    font-size:larger;
+    font-weight:750;
+}

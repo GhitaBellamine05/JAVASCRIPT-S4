@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Manipulation de vue</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link rel="stylesheet" href="tp-event.css"></head>
+<body>
+
+<div id="exercice1">
+	<h1>Exercice 1</h1>
+	<button :class="{ buttonExo1: true }" @click ="showTitle">{{titre}}</button>
+</div>
+
+<div id="exercice2">
+	<h1>Exercice2</h1>
+	<div class="inline">
+		<button  :class="{ buttonExo1: true }"@click = "Incrementer">++</button>
+		<p>{{compteur}}</p>
+		<button :class="{ buttonExo1: true }"@click = "Decrementer">--</button>
+    </div>
+</div>
+<div id="exercice3">
+	<h1>Exercice3</h1>
+	<label for="champDeSaisie">Veuillez saisir votre texte :</label>
+	<input type="text" v-model="inputValue">
+	<p v-if="isSpace" :class="{ red: true }">{{messageDeRappel}}</p>
+
+</div>
+<script>
+	const app1 = {
+		data () {
+				return { titre :"Clique moi !"}
+			},
+			methods :{ showTitle(){
+				this.titre = "Cliqué";
+			}}
+	};
+Vue.createApp(app1).mount("#exercice1");
+    const app2 = {
+		data(){
+			return { compteur : 0}
+		},
+		methods : {
+			Incrementer(){
+				this.compteur++;
+			},
+			Decrementer(){
+				this.compteur--;
+			}
+		}
+
+	}
+Vue.createApp(app2).mount("#exercice2");
+const app3 = {
+  data() {
+    return {
+      inputValue: "", 
+      messageDeRappel: "Rappel : Veuillez saisir une chaîne de caractères ne contenant pas d'espace"
+    };
+  },
+  computed: {
+    isSpace() {
+      return this.inputValue.includes(" "); 
+    }
+  }
+};
+
+Vue.createApp(app3).mount("#exercice3");
+
+
+
+</script>
+
+</body>
+</html>

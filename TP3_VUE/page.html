@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1-38</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="text-center text-light my-4">
+            <h1 class="mb-4">TodoTask List</h1>
+            <fieldset>
+                <legend>Filter Tasks:</legend>
+                <input type="text" v-model="searchTerm" placeholder="Filter task by name"><br>
+                <label>
+                    <input :class="{ radioButton: true }" type="radio" v-model="filterStatus" value="all"> All
+                </label>
+                <label>
+                    <input :class="{ radioButton: true }" type="radio" v-model="filterStatus" value="completed"> Completed
+                </label>
+                <label>
+                    <input :class="{ radioButton: true }" type="radio" v-model="filterStatus" value="notCompleted"> Not Completed
+                </label>
+            </fieldset>
+        </header>
+
+        <ul class="list-group todos mx-auto text-light">
+            <li v-for="task in filteredTasks" :key="task.id" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    <input type="checkbox" v-model="task.completed" v-show="!task.completed"> 
+                    Task {{ task.id }}: {{ task.title }} - {{ task.description }}
+                </span>
+            </li>
+        </ul>
+        <br>
+        <p :class = {"pg":true}>Total Tasks: {{ totalTasks }}</p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    searchTerm: "",
+                    filterStatus: "all", 
+                    taskList: [
+                        { id: 1, title: "Faire les courses", description: "Acheter des légumes et du lait.", completed: false },
+                        { id: 2, title: "Faire du sport", description: "Courir pendant 30 minutes.", completed: true },
+                        { id: 3, title: "Réviser pour l'examen", description: "Relire le chapitre 5 du manuel.", completed: false }
+                    ]
+                };
+            },
+            computed: {
+                filteredTasks() {
+                    return this.taskList.filter(task => {
+                        const matchesSearch = task.title.toLowerCase().includes(this.searchTerm.toLowerCase());
+
+                        if (this.filterStatus === "completed") {
+                            return task.completed && matchesSearch;
+                        } else if (this.filterStatus === "notCompleted") {
+                            return !task.completed && matchesSearch;
+                        }
+                        return matchesSearch;
+                    });
+                },
+                totalTasks() {  
+                    return this.taskList.length;
+                }
+            }
+        });
+
+        app.mount("#app");
+    </script>
+</body>
+</html>

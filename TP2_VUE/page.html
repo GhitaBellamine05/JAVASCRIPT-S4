@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Vue.js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        img{
+            float: left;
+            margin-right: 1rem;
+        }
+        .personne {
+            clear: left;
+            padding: 1rem;
+        }
+        input[type="checkbox"], select {
+            margin-right: 1rem;
+        }
+        .misEnForme {
+            background: #e0ffff;
+            font-family: georgia;
+            font-size: 1.2rem;
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>Filtre sur le nom</legend>
+            <input type="text" v-model="filtreNom">
+        </fieldset>
+        <fieldset>
+            <legend>Options</legend>
+            Homme <input type="checkbox" v-model="homme">
+            Femme <input type="checkbox" v-model="femme">
+            Afficher Téléphone <input type="checkbox" v-model="afficherTel">
+            Afficher Email <input type="checkbox" v-model="afficherEmail">
+            Photo
+            <select v-model="tailleImage">
+                <option value="thumbnail">Petit</option>
+                <option value="medium">Moyen</option>
+                <option value="large">Grand</option>
+            </select>
+            Mise en forme <input type="checkbox" v-model="mef">
+        </fieldset>
+        
+        <div v-for="p in personnesFiltres" :class="{'misEnForme': mef}" class="personne">
+            <img :src="p.picture[tailleImage]">
+            <div>
+                {{ p.name.title }} {{ p.name.first }} {{ p.name.last }}
+                <br>
+                <div>{{ p.location.country }}</div>
+                <div v-if="afficherTel">{{ p.phone }}</div>
+                <div v-if="afficherEmail">{{ p.email }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
