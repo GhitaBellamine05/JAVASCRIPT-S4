@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Introduction to Vue.js",
+      "body": "Vue.js is a progressive JavaScript framework for building user interfaces.",
+      "tags": [
+        "vue",
+        "javascript"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Getting Started with Vue Router",
+      "body": "Vue Router is the official router for Vue.js.",
+      "tags": [
+        "vue",
+        "router"
+      ]
+    },
+    {
+      "id": "91f9",
+      "title": "ddd",
+      "body": "jjjde",
+      "tags": [
+        "kkk",
+        "lll",
+        "lll"
+      ]
+    }
+  ]
+}
