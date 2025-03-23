@@ -1,17 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import CreatePostView from '../views/CreatePostView.vue';
-import PostDetailView from '../views/PostDetailView.vue';
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from '../components/Home.vue'
+import AddJob from '@/components/AddJob.vue'
+import EditJob from '@/components/EditJob.vue'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/add-post', component: CreatePostView },
-  { path: '/post/:id', component: PostDetailView, props: true },
-];
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  { path: '/add', name: 'add-job', component: AddJob },
+  { path: '/Jobs/:id', name: 'edit-job', component: EditJob,props :true }
+]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
+  history: createWebHashHistory(),
+  routes
+})
 
-export default router;
+export default router

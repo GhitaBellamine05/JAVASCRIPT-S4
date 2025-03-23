@@ -1,4 +1,4 @@
-# tp-blog
+# tp-job
 
 ## Project setup
 ```
