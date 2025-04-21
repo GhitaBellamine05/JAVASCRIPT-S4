@@ -4,7 +4,9 @@
 - Salma AMMARI
 - Ghita BELLAMINE
 - Mohamed Idriss Nana
-
+## Pour tester la fonctionnalité de l'admin : 
+Veuillez utiliser le compte **adminUser@gmail.com**
+avec mdp : **admin2025**
 ## À propos de l'application
 
 Notre application a été développée avec succès et fonctionne parfaitement en local. Nous avons intégré Firebase comme solution backend pour la gestion des données.
