@@ -2,8 +2,8 @@
   <div class="welcome-page">
     <div class="welcome-content">
       <div class="welcome-text">
-        <h1 class="welcome-heading">Welcome to ChitChat</h1>
-        <p class="welcome-tagline">Connect, converse, and communicate with ease</p>
+        <h1 class="welcome-heading">Bienvenue sur ChitChat</h1>
+        <p class="welcome-tagline">Connectez-vous, discutez et communiquez facilement</p>
         <div class="welcome-line"></div>
       </div>
       
@@ -15,8 +15,8 @@
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
             </div>
-            <h3>Instant Messaging</h3>
-            <p>Chat with friends in real-time</p>
+            <h3>Messagerie instantanée</h3>
+            <p>Discutez avec vos amis en temps réel</p>
           </div>
           
           <div class="feature-card">
@@ -27,12 +27,12 @@
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
             </div>
-            <h3>Global Community</h3>
-            <p>Connect with people worldwide</p>
+            <h3>Communauté mondiale</h3>
+            <p>Connectez-vous avec des personnes du monde entier</p>
           </div>
         </div>
         
-        <!-- Dynamic Phone Display -->
+        <!-- Affichage dynamique du téléphone -->
         <div class="phone-container">
           <div class="phone-frame">
             <div class="phone-header">
@@ -44,12 +44,12 @@
               </div>
               <div class="message-container">
                 <div class="message received">
-                  <div class="message-content">Hey there! How are you?</div>
-                  <div class="message-time">10:24 AM</div>
+                  <div class="message-content">Salut ! Comment ça va ?</div>
+                  <div class="message-time">10:24</div>
                 </div>
                 <div class="message sent">
-                  <div class="message-content">I'm doing great! Just trying out this new ChitChat app.</div>
-                  <div class="message-time">10:25 AM</div>
+                  <div class="message-content">Je vais super bien ! Je teste juste cette nouvelle application ChitChat.</div>
+                  <div class="message-time">10:25</div>
                 </div>
                 <div class="message received message-typing">
                   <div class="typing-indicator">
@@ -60,7 +60,7 @@
                 </div>
               </div>
               <div class="message-input">
-                <input type="text" placeholder="Type a message..." readonly />
+                <input type="text" placeholder="Tapez un message..." readonly />
                 <button class="send-button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -79,8 +79,8 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
-            <h3>Secure Chats</h3>
-            <p>End-to-end encryption for privacy</p>
+            <h3>Conversations sécurisées</h3>
+            <p>Chiffrement de bout en bout pour votre confidentialité</p>
           </div>
           
           <div class="feature-card">
@@ -91,19 +91,20 @@
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </div>
-            <h3>Media Sharing</h3>
-            <p>Share photos and videos instantly</p>
+            <h3>Partage de médias</h3>
+            <p>Partagez instantanément des photos et des vidéos</p>
           </div>
         </div>
       </div>
       
       <div class="cta-container">
-        <router-link to="/login" class="cta-button primary">Get Started</router-link>
-        <button class="cta-button secondary">Learn More</button>
+        <router-link to="/login" class="cta-button primary">Commencer</router-link>
+        <button class="cta-button secondary">En savoir plus</button>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 export default {

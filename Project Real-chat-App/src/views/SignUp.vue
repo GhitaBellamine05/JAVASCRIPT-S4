@@ -1,34 +1,35 @@
 <template>
   <div class="signup-container">
-    <h1 class="page-title">Sign up page</h1>
+    <h1 class="page-title">Page d'inscription</h1>
     <div class="signup-form">
       <input 
         type="email" 
-        placeholder="enter your mail" 
+        placeholder="entrez votre e-mail" 
         v-model="Email"
         class="input-field">
       <input 
         type="text" 
-        placeholder="enter your FirstName" 
+        placeholder="entrez votre prénom" 
         v-model="FirstName"
         class="input-field">
       <input 
         type="text" 
-        placeholder="enter your LastName" 
+        placeholder="entrez votre nom" 
         v-model="LastName"
         class="input-field">
       <input 
         type="password" 
-        placeholder="enter your password" 
+        placeholder="entrez votre mot de passe" 
         v-model="Password"
         class="input-field">
-      <button @click="Signup" class="signup-button">Sign up</button>
+      <button @click="Signup" class="signup-button">S'inscrire</button>
       <div class="login-link-container">
-        <router-link to="/login" class="login-link">you already have an account ? Log in</router-link>
+        <router-link to="/login" class="login-link">Vous avez déjà un compte ? Se connecter</router-link>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -133,7 +134,7 @@ export default {
 
 .signup-button {
   padding: 14px 20px;
-  background-color: #4a6cf7;
+  background-color:  #3a6ea5;
   color: white;
   border: none;
   border-radius: 6px;

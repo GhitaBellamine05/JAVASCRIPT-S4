@@ -1,11 +1,11 @@
 <template>
   <div class="forgot-password-container">
     <div class="forgot-password-card">
-      <h2 class="forgot-title">Forgot Password?</h2>
-      <p class="forgot-subtitle">No worries, we'll send you reset instructions.</p>
+      <h2 class="forgot-title">Mot de passe oublié ?</h2>
+      <p class="forgot-subtitle">Pas de souci, nous vous enverrons les instructions de réinitialisation.</p>
       
       <div class="form-group">
-        <label for="email">Email Address</label>
+        <label for="email">Adresse e-mail</label>
         <div class="input-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -14,14 +14,14 @@
           <input 
             type="email" 
             id="email"
-            placeholder="Enter your email" 
+            placeholder="Entrez votre e-mail" 
             v-model="email"
             class="form-input"
           >
         </div>
       </div>
       
-      <!-- Notification messages -->
+      <!-- Messages de notification -->
       <div v-if="successMessage" class="notification success">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notification-icon">
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -40,7 +40,7 @@
       </div>
       
       <button @click="sendResetEmail" class="reset-button">
-        <span>Reset Password</span>
+        <span>Réinitialiser le mot de passe</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -52,11 +52,12 @@
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Back to Login
+        Retour à la connexion
       </router-link>
     </div>
   </div>
 </template>
+
 
 <script>
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";

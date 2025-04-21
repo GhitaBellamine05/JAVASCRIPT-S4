@@ -1,26 +1,27 @@
 <template>
   <div class="login-container">
-    <h1 class="app-title">Welcome to our ChatAPP</h1>
+    <h1 class="app-title">Bienvenue sur notre ChatAPP</h1>
     <div class="login-form">
       <input 
         type="email" 
-        placeholder="Email" 
+        placeholder="Adresse e-mail" 
         v-model="email"
         class="input-field">
       <input 
         type="password" 
-        placeholder="Enter your password" 
+        placeholder="Entrez votre mot de passe" 
         v-model="password"
         class="input-field">
-      <button @click="login" class="login-button">Log in</button>
+      <button @click="login" class="login-button">Se connecter</button>
       <div class="auth-links">
-        <p class="no-account">Don't have an account?</p>
-        <router-link to="/signup" class="signup-link">Sign Up</router-link>
-        <router-link to="/forgot" class="forgot-link">Forgot password?</router-link>
+        <p class="no-account">Vous n'avez pas de compte ?</p>
+        <router-link to="/signup" class="signup-link">S'inscrire</router-link>
+        <router-link to="/forgot" class="forgot-link">Mot de passe oublié ?</router-link>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -103,7 +104,7 @@ export default {
 
 .login-button {
   padding: 14px 20px;
-  background-color: #4a6cf7;
+  background-color:  #3a6ea5;
   color: white;
   border: none;
   border-radius: 6px;
@@ -130,7 +131,7 @@ export default {
 
 .signup-link, .forgot-link {
   display: block;
-  color: #4a6cf7;
+  color:  #3a6ea5;
   text-decoration: none;
   margin: 8px 0;
   font-weight: 500;
