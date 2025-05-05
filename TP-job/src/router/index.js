@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from '../../../TP-blog/node_modules/vue-router/dist/vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../components/Home.vue'
 import AddJob from '@/components/AddJob.vue'
 import EditJob from '@/components/EditJob.vue'
