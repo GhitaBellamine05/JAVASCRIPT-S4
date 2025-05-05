@@ -630,8 +630,8 @@
         const displayText = isDeleting 
           ? currentTitle.substring(0, charIndex - 1)
           : currentTitle.substring(0, charIndex + 1)
-        
-        document.querySelector('.hero-title .gradient-text').textContent = displayText
+        console.log('Display text value : ', this.displayText)
+        //document.querySelector('.hero-title .gradient-text').textContent = displayText
         
         if (!isDeleting && charIndex === currentTitle.length) {
           isDeleting = true
